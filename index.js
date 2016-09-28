@@ -34,7 +34,7 @@ function listDir (path, originalPath) {
   // promises for sub listDir calls
   var dirs = [];
 
-  return fs.readdir(path)
+  return Promise.resolve(fs.readdir(path))
     // include only files
     .filter(function (item) {
       var absolutePath = join(path, item);
